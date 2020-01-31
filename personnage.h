@@ -1,5 +1,8 @@
 #ifndef personnage_H
 #define personnage_H
+
+#include "sac_a_dos.h"
+
  
 class Personnage {
 private:
@@ -12,10 +15,10 @@ private:
     //float precision;
     //float criticals;
     //int critic;
-    //Sac sac;
+    Sac sac;
 public:
  
-    Personnage (int max, int x, int y, int strength /*, Sac sad*/);
+    Personnage (int max, int x, int y, int strength , Sac sad);
  
     void down() ;
     void up() ;

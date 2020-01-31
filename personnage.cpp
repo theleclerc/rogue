@@ -1,10 +1,10 @@
 #include "personnage.h"
  
-//#include "sac_a_dos.h"
+#include "sac_a_dos.h"
+
  
- 
-Personnage::Personnage (int max, int x, int y, int strength /*, Sac sad*/) : max_vie(max), vie(max_vie), posx(x), posy(y), force(strength) /*, sac(sad)*/ {};
- 
+Personnage::Personnage (int max, int x, int y, int strength , Sac sad) {max_vie = max; vie = max_vie; posx = x; posy =y; force = strength; sac = sad;};
+
     void Personnage::down() {posy++;};
     void Personnage::up() {posy--;};
     void Personnage::left() {posx--;};

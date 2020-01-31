@@ -5,6 +5,19 @@
 #include "labyrinthe.h"
 #include <cstdlib>
 #include <vector>
+
+
+void imprime(Labyrinthe carte) {
+   wmove(stdscr,0, 0);
+    for (int i=0; i<30; i++) {
+        for (int b=0; b<30; b++){
+            waddch(stdscr, carte.A[b+30*i]);
+        }
+        wmove(stdscr,i+1,0);
+    }
+    wrefresh(stdscr);
+};
+
 int main() {
    initscr();
     Labyrinthe carte (30,30);
@@ -30,20 +43,11 @@ int main() {
    carte.create_couloir(15, 10, couloir5);
    carte.create_couloir(5, 19, couloir6);
     noecho();
-    wmove( stdscr,0, 0);
-    for (int i=0; i<30; i++) {
-        for (int b=0; b<30; b++){
-            waddch(stdscr, carte.A[b+30*i]);
-        }
-        wmove(stdscr,i+1,0);
-        
-    
-    }
-    wrefresh(stdscr);
+    imprime(carte);
     int ch;
-    
+    Sac sac;
     keypad(stdscr, TRUE);
-    Personnage P = Personnage(30,2,2,10);
+    Personnage P = Personnage(30,2,2,10,sac);
     wmove(stdscr,2,2);
     waddch(stdscr,'@');
     wmove(stdscr,2,2);
@@ -88,10 +92,10 @@ int main() {
              //Le perso équipe quelque chose
              break;
           default: 
-             std :: cout<< "Commande inconnue";
+             mvprintw(0,0,"Commande inconnue");
              break;
     }
-    waddch(stdscr,'.');
+    imprime(carte);
     wmove(stdscr,P.posiy(),P.posix()); 
     waddch(stdscr,'@');
     wmove(stdscr,P.posiy(),P.posix());

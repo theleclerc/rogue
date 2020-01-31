@@ -14,10 +14,10 @@ Labyrinthe::Labyrinthe (int l, int h) {
  
 void Labyrinthe::create_salle (int x, int y, int lon, int haut) {
    for (int i = 0; i <= lon-1; i+=1) {
-       A[x+i+(y)*30]='_';
+       A[x+i+(y)*30]='-';
    };
    for (int i = 1; i <= lon-2; i+=1) {
-       A[x+i+30*(y+haut-1)]='_';
+       A[x+i+30*(y+haut-1)]='-';
    };
    for (int i=1; i<= haut-1; i+=1) {
        A[x+(y+i)*30]='|';
